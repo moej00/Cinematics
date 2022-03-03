@@ -41,7 +41,7 @@ export default function NewUser() {
           </div>
         </div>
         <div className="newUserItem">
-          <label>Active</label>
+          <label>is Admin</label>
           <select className="newUserSelect" name="active" id="active">
             <option value="yes">Yes</option>
             <option value="no">No</option>

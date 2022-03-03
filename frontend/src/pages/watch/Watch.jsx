@@ -3,7 +3,8 @@ import { useLocation, Link } from "react-router-dom";
 import "./watch.scss";
 
 const Watch = () => {
-  const {movie}= useLocation();
+  const location = useLocation();
+  const {movie} = location.state
 
   return (
     <div className="watch">
@@ -18,7 +19,7 @@ const Watch = () => {
         autoPlay
         progress="true"
         controls
-        src={movie?.video}
+        src={movie.video}
       />
     </div>
   );

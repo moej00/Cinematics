@@ -3,7 +3,7 @@ import "./newList.css";
 
 export default function NewList() {
   const location = useLocation();
-  const list = location.list;
+  const {list} = location.state;
 
   return (
     <div className="product">

@@ -38,7 +38,7 @@ export default function ProductList() {
         return (
           <>
             <Link
-              to={{ pathname: "/user/" + params.row._id, user: params.row }}
+              to={`/user/${params.row._id}`} state = {{user: params.row }}
             >
               <button className="userListEdit">Edit</button>
             </Link>

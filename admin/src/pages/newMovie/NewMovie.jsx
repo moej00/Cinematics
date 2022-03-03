@@ -5,6 +5,7 @@ import "./newMovie.css";
 import { createMovie } from "../../context/movieContext/ApiCalls";
 import { useContext } from "react";
 import { MovieContext } from "../../context/movieContext/MovieContext";
+import {Link} from "react-router-dom";
 
 export default function NewMovie() {
   const [movie, setMovie] = useState(null);
@@ -173,9 +174,11 @@ export default function NewMovie() {
           />
         </div>
         {uploaded === 5 ? (
+          <Link to = "/movies">
           <button className="addProductButton" onClick={submitHandler}>
             Create
           </button>
+          </Link>
         ) : (
           <button className="addProductButton" onClick={uploadHandler}>
             Upload

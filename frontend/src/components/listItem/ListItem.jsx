@@ -32,7 +32,7 @@ const ListItem = ({ index, item }) => {
   }, [item]);
 
   return (
-    <Link to={{ pathname: "/watch", state : {movie: movie} }}>
+    <Link to="/watch" state = {{movie: movie}}>
     
       <div
         className="listItem"
