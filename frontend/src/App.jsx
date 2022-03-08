@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "./authContext/AuthContext";
+import Search from "./pages/search/Search";
 
 const App = () => {
   const { user } = useContext(AuthContext);
@@ -29,12 +30,14 @@ const App = () => {
           path="/login"
           element={!user ? <Login /> : <Navigate replace to="/" />}
         />
+        <Route path ="/search" element = {<Search/>}/>
 
         {user && (
           <>
             <Route path="/movies" element={<Home type="movie" />} />
             <Route path="/series" element={<Home type="series" />} />
             <Route path="/watch" element={<Watch />} />
+            
           </>
         )}
       </Routes>
