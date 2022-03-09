@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState} from "react";
+import MovieData from "../../components/searchMovie/SearchMovie";
 import './search.scss';
 
 
@@ -52,8 +53,7 @@ const Search = () => {
 
   return (
     <>
-   
-      <form className="search">
+        <form className="search">
         <input
         className="searchTxt"
         placeholder="Search by Movie Name or Genre"
@@ -65,45 +65,14 @@ const Search = () => {
 
       {loading ? (<div className="loader" />):(
         <div className="movieData">
-          {searchValue.length> 1 ? (filteredMovies.map((movie) => (
-         <div key={movie._id}>
-
-         <div className="movieLists">
-         <span>{movie.title}</span>
-
-      <div>
-        <img
-          width="200"
-          height={120}
-          src={movie.img}
-          />
-      </div>
-
-      <span>({movie.year})</span>
-    </div>
-    </div>
-          ))
+          {searchValue.length> 1 ? (<MovieData movies = {filteredMovies}/>
+         
           ):(
-          movies.map((movie) => (
-         <div key={movie._id}>
-         <div className="movieLists">
-         <span>{movie.title}</span>
-
-      <div>
-        <img
-          width="200"
-          height={120}
-          src={movie.img}
-          />
-      </div>
-
-      <span>({movie.year})</span>
-    </div>
-    </div>
-          ))
+          <MovieData movies = {movies}/>
 
         )
 }
+
         </div>
 
 )}
