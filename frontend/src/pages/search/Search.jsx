@@ -9,6 +9,7 @@ const Search = () => {
   const [searchValue, setSearchValue] = useState("");
   const [movies, setMovies] = useState([]);
   const [filteredMovies, setFilteredMovies] = useState([]);
+  const [message, setMessage] = useState("");
   const [loading, setIsLoading] = useState(false)
 
  useEffect(() => {
@@ -37,18 +38,23 @@ const Search = () => {
             const filter = movies.filter((movie) => {
                 return Object.values(movie).join('').toLowerCase().includes(searchValue.toLowerCase())
             })
+            {filter.length===0 ? setMessage("No Results Found") : (
+             setMessage('')
+            )}
             
             setFilteredMovies(filter)
+            
         }
         else{
             setFilteredMovies(movies)
         }
+        
     }
-
 
 
     const inputChangeHandler = (e)=>{
       searchHandler(e.target.value)
+  
     }
 
   return (
@@ -62,6 +68,7 @@ const Search = () => {
         type="text"
         />
       </form>
+     <h2><center>{message}</center></h2>
 
       {loading ? (<div className="loader" />):(
         <div className="movieData">
@@ -72,6 +79,7 @@ const Search = () => {
 
         )
 }
+
 
         </div>
 
